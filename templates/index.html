@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <h1> {{title}}</h1>
+        <button href="/save" >save</button>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>first</th>
+            <th>second</th>
+            <th>action</th>
+        </tr>
+        {% for value in tasks %}
+        <tr>
+
+            <td>{{value[0]}}</td>
+            <td>{{value[1]}}</td>
+            <td>{{value[2]}}</td>
+            <td>
+                <a href="/update/{{value[0]}}" >Updata</a>
+                <br>
+                <a href="/delete/{{value[0]}}">Delete</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="/" method="post">
+        <input type="text" name="first" id="first">
+        <input type="text" name="second" id="second">
+        <input type="submit" value="ADD">
+    </form>
+
+</div>
+{% endblock %}
